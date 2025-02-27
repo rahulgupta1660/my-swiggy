@@ -6,9 +6,18 @@ import { GoDotFill } from "react-icons/go";
 import { CDN_URL } from "../utils/contants";
 import { useState } from "react";
 import Modal from "./Modal";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const Item = ({ item }) => {
   const [modal, setModal] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const handleAddItem = () => {
+    // dispath an action
+    dispatch(addItem(item));
+  };
 
   const onClose = () => {
     setModal(false);
@@ -56,7 +65,10 @@ const Item = ({ item }) => {
         </div>
         <div className="w-1/6">
           <div className="flex flex-col justify-center items-center relative">
-            <div className="absolute text-green-700 w-32 flex items-center justify-center bottom-[25px] shadow-md h-10 uppercase font-bold cursor-pointer border bg-white rounded-lg text-center hover:bg-gray-200 border-gray-300">
+            <div
+              className="absolute text-green-700 w-32 flex items-center justify-center bottom-[25px] shadow-md h-10 uppercase font-bold cursor-pointer border bg-white rounded-lg text-center hover:bg-gray-200 border-gray-300"
+              onClick={handleAddItem}
+            >
               add
             </div>
             <img

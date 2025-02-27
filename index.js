@@ -7,6 +7,7 @@ const About = lazy(() => import("./src/components/About"));
 const Error = lazy(() => import("./src/components/Error"));
 const App = lazy(() => import("./src/components/App"));
 const Restaurant = lazy(() => import("./src/components/Restaurant"));
+const Cart = lazy(() => import("./src/components/Cart"));
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ createRoot(document.getElementById("root")).render(
             <Route path="contact" element={<Contact />} />
             <Route path="restaurants/:id" element={<Restaurant />} />
             <Route path="about" element={<About />} />
+            <Route path="cart" element={<Cart />} />
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>

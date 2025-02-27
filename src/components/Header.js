@@ -10,6 +10,8 @@ const Header = () => {
   // subsscribing to the store using a selector
   const cartItems = useSelector((store) => store.cart.items);
 
+  console.log(cartItems);
+
   const { user } = useContext(UserContext);
 
   const onlineStatus = useOnlineStatus();
@@ -34,7 +36,7 @@ const Header = () => {
           <Link to="/about">about</Link>
         </li>
         <li>
-          <Link to="#" className="font-bold text-xl">
+          <Link to="/cart" className="font-bold text-xl">
             cart - ({cartItems.length} items)
           </Link>
         </li>
