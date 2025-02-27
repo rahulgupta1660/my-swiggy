@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import RestaurantShimmer from "./RestaurantShimmer";
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { RESTAURANTS_API } from "../utils/contants";
 import { Link } from "react-router";
+import UserContext from "../utils/UserContext";
 
 const Home = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -10,6 +11,8 @@ const Home = () => {
   const [filteredRestaurants, setfilteredRestaurants] = useState([]);
 
   const [searchterm, setSearchterm] = useState("");
+
+  const { user, setUsername } = useContext(UserContext);
 
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
@@ -58,6 +61,11 @@ const Home = () => {
       >
         Top Rated Restaurants
       </button>
+      <input
+        className="border-gray-300 border p-2 rounded-md ml-1"
+        onChange={(e) => setUsername(e.target.value)}
+        value={user}
+      />
       {filteredRestaurants.length > 0 ? (
         <div className="grid grid-cols-4 gap-y-10">
           {filteredRestaurants.map((restaurant) => (

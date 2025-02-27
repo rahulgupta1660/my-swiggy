@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router";
 import useRestaurant from "../utils/useRestaurant";
 import { FaStar } from "react-icons/fa";
 import Accordian from "./Accordian";
 
 const Restaurant = () => {
+  const [showIndex, setShowIndex] = useState(null);
+
   const { id } = useParams();
 
   const data = useRestaurant(id);
@@ -76,10 +78,13 @@ const Restaurant = () => {
         </div>
       </div>
       <strong className="text-xl font-bold">Deals for you</strong>
-      {categories.map((category) => (
+      {categories.map((category, index) => (
+        // controlled component
         <Accordian
           key={category?.card?.card?.categoryId}
           data={category?.card?.card}
+          show={index == showIndex && true}
+          setShowIndex={() => setShowIndex(index)}
         />
       ))}
     </>

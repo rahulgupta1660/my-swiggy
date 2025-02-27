@@ -2,14 +2,13 @@ import { useState } from "react";
 import Item from "./Item";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
-const Accordian = ({ data }) => {
-  const [show, setShow] = useState(true);
+const Accordian = ({ data, show, setShowIndex }) => {
   return (
     <div className="py-4 border-b-gray-200 border-b-8">
       {/* header */}
       <div
         className="flex justify-between items-center cursor-pointer"
-        onClick={() => setShow(!show)}
+        onClick={() => setShowIndex()}
       >
         <span className="font-extrabold text-lg">{`${data?.title} (${data?.itemCards.length})`}</span>
         <span>{show ? <IoIosArrowUp /> : <IoIosArrowDown />}</span>

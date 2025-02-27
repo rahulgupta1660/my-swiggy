@@ -1,6 +1,11 @@
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
+
 const RestaurantCard = ({ data }) => {
   const { name, areaName, cloudinaryImageId, avgRatingString, cuisines, sla } =
     data;
+
+  const { user } = useContext(UserContext);
   return (
     <>
       <img
@@ -15,6 +20,7 @@ const RestaurantCard = ({ data }) => {
       <div className="text-slate-600">
         <p>{cuisines.toString()}</p>
         <p>{areaName}</p>
+        <p>user : {user}</p>
       </div>
     </>
   );
