@@ -19,3 +19,9 @@
 - HTTPs
 - Tree Shaking - remove unused code
 - Different Dev and Prod Bundles
+
+# Types of testing (Developer)
+
+- Unit Testing
+- Integration Testing
+- End To End Testing (E2E Testing)
